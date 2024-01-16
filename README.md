@@ -8,6 +8,6 @@ All you need to do is:
 3. Save as to start using for typing up your notes
 4. Done. Start typing away!
 
-For further help on LaTeX or any other TeX help, please reference to [Overleaf's documentation]() since it's a great resource to start off, if you are a beginner.
+For further help on LaTeX or any other TeX help, please reference to [Overleaf's documentation](https://www.overleaf.com/learn) since it's a great resource to start off, if you are a beginner.
 
 (C) 2023 Abdon Morales and the Regents of the University of Texas at Austin
