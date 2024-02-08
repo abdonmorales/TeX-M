@@ -1,5 +1,8 @@
-# TeX-M
-Tex-M is a LaTeX template for notes for mathematics classes at the University of Texas at Austin, mostly targeted to those in the College of Natural Science (CS and Math) and Engineering.
+# TeX-M 1.5
+Tex-M is a LaTeX template for notes for mathematics classes at the University of Texas at Austin, mostly targeted to those in the College of Natural Science and Engineering such as the Department of Mathematics, Computer Science, and all Engineering Departments.
+
+## TeX editor
+Any TeX editor will work, the perferred TeX editor would be TeX Maker and TeXWorks (Mac) for beginners in Latex, as well as Overleaf's online editor.
 
 ## How to install (really easy)
 All you need to do is:
