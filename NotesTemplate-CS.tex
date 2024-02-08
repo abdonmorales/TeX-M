@@ -1,15 +1,16 @@
 % !TEX TS-program = pdflatex
 % !TEX encoding = UTF-8 Unicode
 
-% TeX-M (r1.1)
-% For my math classes at UT Austin
+% TeX-CS (version 1.0)
+% For Computer Science classes at the University of Texast at Austin
 % Notes template created by Abdon Morales for the College of Natural Science
 % and for the Department of Mathematics and Computer Science
-% (c) 2019 - 2024 Abdon Morales and the University of Texas at Austin
+% (c) 2024 Abdon Morales and the University of Texas at Austin
 % This is a notes template for a LaTeX document using the "article" class for Mathematics (Calculus)
 % at the University of Texas at Austin.
 
-% Last change made: Jan 27, 2024 1:40 AM CST
+% Last change made: Feb 8, 2024 12:45 AM CST
+
 
 % See "book", "report", "letter" for other types of document.
 
@@ -21,6 +22,7 @@
 %%% Examples of Article customizations
 % These packages are optional, depending whether you want the features they provide.
 % See the LaTeX Companion or other references for full information.
+
 
 %%% PAGE DIMENSIONS
 \usepackage{geometry} % to change the page dimensions
@@ -34,21 +36,159 @@
 
 % \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
 
+
 %%% PACKAGES
 \usepackage{booktabs} % for much better looking tables
 \usepackage{array} % for better arrays (eg matrices) in maths
 \usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
 \usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
 \usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
-\usepackage{exercise}
-% Math tools
+
+%%% Math tools for Computer Science
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{tikz} % For charts, mathematical graphs, and etc
 %% Equal symbol for L'Hospital Rule
 \usepackage{tcolorbox}
 \newcommand\LR{\stackrel{\mathclap{\normalfont\mbox{L.R}}}{=}}
+
+% Encoding.
+\usepackage[T1]{fontenc}
+
+% Font.
+\usepackage{ccfonts,eulervm}
+\usepackage{dsfont}
+
+% Spaces.
+\usepackage{xspace}
+
+% Parser.
+\usepackage{xparse}
+
+% Language.
+\usepackage[english]{babel}
+
+% Math.
+\usepackage{amsthm}
+
+% Symbols.
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{textcomp}
+
+% Graphics.
+\usetikzlibrary{shapes, patterns, positioning}
+\usepackage{subcaption}
+
+% Hyperlinks.
+\usepackage[
+	colorlinks=true
+]{hyperref}
+
+% References.
+\usepackage[
+	sort&compress,
+	nameinlink,
+	noabbrev
+]{cleveref}
+
+% Quotations.
+\usepackage{csquotes}
+
+% Bibliography.
+\usepackage[
+	backend=biber,
+	style=numeric,
+	natbib=true,
+	hyperref=true,
+	date=year,
+	sortcites=true,
+	maxbibnames=50,
+	maxcitenames=2,
+	firstinits=true,
+	isbn=false,
+	url=false,
+	doi=false
+]{biblatex}
+
+% Bucketlist.
+\usepackage{todonotes}
+
 % These packages are all incorporated in the memoir class to one degree or another...
+
+%%% Doc and Math macros
+
+% Structure.
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{simulation}[theorem]{Simulation}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+% Abbreviations.
+\newcommand{\ie}{i.e.\xspace}
+\newcommand{\etal}{et al.\xspace}
+\newcommand{\etc}{etc.\xspace}
+\newcommand{\eg}{e.g.\xspace}
+\newcommand{\fig}{fig.\xspace} % figure
+\newcommand{\vv}{v.v.\xspace} % vice versa
+
+% Basics.
+\newcommand{\on}[1]{\operatorname{#1}}
+\newcommand{\defas}[0]{\mathrel{\mathop:}=} % define as
+\newcommand{\asdef}[0]{=\mathrel{\mathop:}} % as defined
+\newcommand{\ddd}[0]{, \ldots, } % , ..., 
+
+% Logic.
+\newcommand{\fa}[0]{~\forall}
+\newcommand{\st}[0]{\mathrel{:}} % such that
+\newcommand{\is}[0]{\mathrel{:}}
+\newcommand{\from}[0]{\mathop{~:~}}
+
+% Sets.
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\nin}[0]{\not\in}
+\newcommand{\with}[0]{\mathrel{|}}
+\newcommand{\powerof}[1]{\mathcal{P}\left(#1\right)} % P(Set)
+\newcommand{\power}[1]{2^#1} % 2^Set
+\newcommand{\len}[1]{\ensuremath{|#1|}}
+\newcommand{\eset}[0]{\emptyset}
+
+% Numbers.
+\newcommand{\N}[0]{\mathbb{N}}
+\newcommand{\Z}[0]{\mathbb{Z}}
+\newcommand{\Q}[0]{\mathbb{Q}}
+\newcommand{\R}[0]{\mathbb{R}}
+\newcommand{\onerange}[1]{\{1 \ddd #1\}}
+\newcommand{\zerorange}[1]{\{0 \ddd #1\}}
+
+% Functions.
+\newcommand{\sign}[0]{\on{sign}}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\cif}[0]{\text{, if }}
+\newcommand{\els}[0]{\text{, otherwise}}
+
+% Probability.
+\newcommand{\prob}[1]{\mathrm{P}(#1)}
+\newcommand{\expected}[1]{\mathrm{E}[#1]}
+\newcommand{\given}[0]{\mathrel{|}}
+
+% Complexity.
+\renewcommand{\O}[0]{\ensuremath{\mathcal{O}}} % Big-O-Notation
+\newcommand{\p}[0]{\ensuremath{\text{P}}}
+\newcommand{\np}[0]{\ensuremath{\text{NP}}}
+\newcommand{\rp}[0]{\ensuremath{\text{RP}}} % Randomized polynomial time
+\newcommand{\bpp}[0]{\ensuremath{\text{BPP}}} % Bounded-error prob. polynomial time
+\newcommand{\zpp}[0]{\ensuremath{\text{ZPP}}} % Zero-error prob. polynomial time
+\newcommand{\nphard}[0]{\ensuremath{\np\text{-hard}}} % NP-hard
+\newcommand{\npcomplete}[0]{\ensuremath{\np\text{-complete}}} % NP-complete
+
 
 %%% HEADERS & FOOTERS
 \usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
@@ -57,46 +197,30 @@
 \lhead{}\chead{}\rhead{}
 \lfoot{}\cfoot{\thepage}\rfoot{}
 
+
 %%% SECTION TITLE APPEARANCE
 \usepackage{sectsty}
 \allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
 % (This matches ConTeXt defaults)
+
 
 %%% ToC (table of contents) APPEARANCE
 \usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
 \usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
 \renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
 \renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
-%%% Question creation
-\renewcommand\ExerciseName{Question~}
-\renewcommand\AnswerName{Answer to question}
-\renewcommand\ExerciseHeader{%
-  \noindent\parbox[t]{.18\textwidth}{%
-    \bfseries\large\ExerciseName\ExerciseHeaderNB\hfill}%
-  \parbox[t]{.72\textwidth}{%
-    \centering\bfseries\large%
-    \ExerciseHeaderTitle\ExerciseHeaderOrigin}%
-  \par\medskip
-}
-%%% END Article customizations
 
 %%% The "real" document content comes below...
 
-% Replace examples with the actual content you intend to put
-\title{Discrete Mathematics}
-\author{(Name) \\ The University of Texas at Austin \\ M325K \\ Dr. X}
-\date{Jan 1, 1980 \\ Class X or 10, etc... goes here}
+\title{Intro to Programming}
+\author{(Name) \\ The University of Texas at Austin - Computer Science \\ CS 312 \\ Dr. Who}
+\date{December 31, 1979 \\ Class X or 10, etc... goes here}
 %\date{} % Activate to display a given date or no date (if empty),
          % otherwise the current date is printed 
 
 \begin{document}
 \maketitle
 \section*{unnumbered section here!}
-
-\begin{Exercise} \emph{Question goes here?}
-\end{Exercise}
-\begin{Answer}
-Answer goes here; example answer below
 \begin{equation}
 	\begin {gathered}
 		\begin{aligned}
